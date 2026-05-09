@@ -345,7 +345,7 @@ The flag is hidden inside the image.
 Run:
 
 ```bash
-tshark -r myNetworkTraffic.pcap -Y "tcp.len==12" -T fields -e tcp.segment_data | xxd -p -r | base64 -d
+tshark -r myNetworkTraffic.pcap -Y "tcp.len==12 || tcp.len==4" -T fields -e frame.time_epoch -e tcp.segment_data | sort -n | awk '{print $2}' | tr -d '\n' | xxd -p -r | base64 -d
 ```
 
 This automatically extracts the packet data, reconstructs the Base64 text in order, decodes it, and reveals the flag.

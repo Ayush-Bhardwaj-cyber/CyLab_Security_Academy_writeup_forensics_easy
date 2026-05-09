@@ -1,6 +1,6 @@
-# PicoCTF Forensics Writeups
+# CyLab Security Academy Forensics Writeups
 
-Welcome to my PicoCTF Forensics Writeups repository.
+Welcome to my CyLab Security Academy Forensics Writeups repository.
 
 This repository contains beginner-friendly solutions, commands, explanations, and scripts for various PicoCTF Forensics challenges.
 

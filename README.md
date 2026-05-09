@@ -340,28 +340,34 @@ The flag is hidden inside the image.
 
 # 14. Ph4nt0m 1ntrud3r
 
-## Step 1: Open the PCAP file in Wireshark
+## Step 1: Extract the Base64 packet data
 
-Sort packets by time in ascending order.
+Run:
 
-## Step 2: Identify packets
-
-Look for packets with:
-
-```text
-Length = 12
+```bash
+tshark -r myNetworkTraffic.pcap -Y "tcp.len==12" -T fields -e tcp.segment_data | xxd -p -r | base64 -d
 ```
 
-These contain Base64 encoded text.
-
-## Step 3: Decode the packets
-
-Decode the Base64 strings in arrival order.
-
-Combining them reveals the flag.
+This automatically extracts the packet data, reconstructs the Base64 text in order, decodes it, and reveals the flag.
 
 ---
 
+# Tools Used
+
+- ExifTool
+- Wireshark
+- Tshark
+- CyberChef
+- Base64
+- HexEdit
+- xxd
+- strings
+- grep
+- zsteg
+- Steghide
+- Python
+
+---
 # Tools Used
 
 - ExifTool
